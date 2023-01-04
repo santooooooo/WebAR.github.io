@@ -42,28 +42,27 @@
   >
     <!-- we use cors proxy to avoid cross-origin problems -->
 
-    <a-nft
-      type="nft"
-      url="assets/output/RestuKaiohDeath"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
+    <a-light type="point" instensity="5.0" position="0 20 0">
 
-      <a-entity light="type: ambient; color: #ffffff; intensity: 1.5" position="-1 1 0"></a-entity>
+	    <a-nft
+	      type="nft"
+	      url="assets/output/RestuKaiohDeath"
+	      smooth="true"
+	      smoothCount="10"
+	      smoothTolerance=".01"
+	      smoothThreshold="5"
+	    >
 
-      <a-entity
-        gltf-model="RetsuKaioh.glb"
-        scale="150 150 150"
-        position="0 0 0"
-	id="3dModel"
-      >
-      </a-entity>
+	      <a-entity
+		gltf-model="RetsuKaioh.glb"
+		scale="150 150 150"
+		position="0 0 0"
+	      >
+	      </a-entity>
 
-    </a-nft>
+	    </a-nft>
 
-    <a-light type="point" instensity="5.0" position="0 20 0" target="#3dMoel"></a-light>
+    </a-light>
 
     <a-entity camera></a-entity>
   </a-scene>
