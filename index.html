@@ -2,86 +2,62 @@
 <html>
 
 <head>
-    <title>Marker Based AR with AR.js and Three.js</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/3.1.0/three.js/build/ar.js"></script>
+	<title>Marker Based AR with AR.js and Three.js</title>
 </head>
 
-<body>
-    <script>
-        const renderer = new THREE.WebGLRenderer({
-            antialias: true,
-            alpha: true
-        });
-        renderer.setClearColor(new THREE.Color(), 0);
-        renderer.setSize(640, 480);
-        renderer.domElement.style.position = 'absolute';
-        renderer.domElement.style.top = '0px';
-        renderer.domElement.style.left = '0px';
-        document.body.appendChild(renderer.domElement);
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-        const scene = new THREE.Scene();
-        scene.visible = false;
-        const camera = new THREE.Camera();
-        scene.add(camera);
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
 
-        const arToolkitSource = new THREEx.ArToolkitSource({
-            sourceType: 'webcam'
-        });
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <!-- we use cors proxy to avoid cross-origin problems -->
 
-        arToolkitSource.init(() => {
-            setTimeout(() => {
-                onResize();
-            }, 2000);
-        });
-
-        addEventListener('resize', () => {
-            onResize();
-        });
-
-        function onResize() {
-            arToolkitSource.onResizeElement();
-            arToolkitSource.copyElementSizeTo(renderer.domElement);
-            if (arToolkitContext.arController !== null) {
-                arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
-            }
-        };
-
-        const arToolkitContext = new THREEx.ArToolkitContext({
-            cameraParametersUrl: 'data/camera_para.dat',
-            detectionMode: 'mono'
-        });
-
-        arToolkitContext.init(() => {
-            camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
-        });
-
-        const arMarkerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
-            type: 'pattern',
-            patternUrl: 'data/pattern-hiro.png',
-            changeMatrixMode: 'cameraTransformMatrix'
-        });
-
-        const mesh = new THREE.Mesh(
-            new THREE.CubeGeometry(1, 1, 1),
-            new THREE.MeshNormalMaterial(),
-        );
-        mesh.position.y = 1.0;
-        scene.add(mesh);
-
-        const clock = new THREE.Clock();
-        requestAnimationFrame(function animate() {
-            requestAnimationFrame(animate);
-            if (arToolkitSource.ready) {
-                arToolkitContext.update(arToolkitSource.domElement);
-                scene.visible = camera.visible;
-            }
-            const delta = clock.getDelta();
-            mesh.rotation.x += delta * 1.0;
-            mesh.rotation.y += delta * 1.5;
-            renderer.render(scene, camera);
-        });
-    </script>
+    <a-nft
+      type="nft"
+      url="assets/output/RestuKaiohDeath"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <a-entity
+        gltf-model="RetsuKaioh.glb"
+        scale="5 5 5"
+        position="50 150 0"
+      >
+      </a-entity>
+    </a-nft>
+    <a-entity camera></a-entity>
+  </a-scene>
 </body>
 
 </html>
