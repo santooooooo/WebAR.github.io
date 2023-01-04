@@ -36,6 +36,7 @@
   <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
+    renderer="gammaOutput: true;"
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
@@ -52,13 +53,13 @@
       <a-entity
         gltf-model="RetsuKaioh.glb"
         scale="150 150 150"
-        position="0 100 0"
+        position="0 30 0"
       >
       </a-entity>
 
     </a-nft>
 
-    <a-light type="point" instensity="1.0" position="0 0 0"></a-light>
+    <a-light instensity="1.0" position="0 0 0"></a-light>
 
     <a-entity camera></a-entity>
   </a-scene>
