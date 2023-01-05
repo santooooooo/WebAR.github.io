@@ -35,8 +35,7 @@
   </div>
   <a-scene
     vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true;"
-    renderer="gammaOutput: true;"
+    renderer="logarithmicDepthBuffer: true; gammaOutput: true;"
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
@@ -59,12 +58,8 @@
 	scale="150 150 150"
 	position="50 0 -50"
 	id="3Dmodel"
-	material="color: red"
       >
       </a-entity>
-
-      <a-box material="color: white" position="0 0 0" scale="50 50 50">
-      </a-box>
 
     </a-nft>
     <a-entity camera></a-entity>
