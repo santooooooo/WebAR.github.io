@@ -45,7 +45,8 @@ function main() {
     (event) => {
       const deg = calcDeviceDirection(event);
       const rad = deg * (Math.PI / 180); // deg2rad (-π 〜 π)
-      if (controls) controls.alphaOffset -= rad;
+      if (deviceOrientationControls)
+        deviceOrientationControls.alphaOffset -= rad;
     },
     { once: true }
   );
