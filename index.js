@@ -14,6 +14,11 @@ function main() {
   const geom = new THREE.BoxGeometry(200, 200, 200);
   const mtl = new THREE.MeshBasicMaterial({ color: 0xff0000 });
   const box = new THREE.Mesh(geom, mtl);
+
+  const deviceOrientationControls = new THREEx.DeviceOrientationControls(
+    camera
+  );
+
   arjs.add(box, 35.657501, 139.388417);
 
   //arjs.fakeGps(-0.72, 51.05);
@@ -31,6 +36,7 @@ function main() {
       camera.aspect = aspect;
       camera.updateProjectionMatrix();
     }
+    deviceOrientationControls.update();
     cam.update();
     renderer.render(scene, camera);
     requestAnimationFrame(render);
