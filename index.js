@@ -15,41 +15,9 @@ function main() {
   const mtl = new THREE.MeshBasicMaterial({ color: 0xff0000 });
   const box = new THREE.Mesh(geom, mtl);
 
-  const deviceOrientationControls = new THREEx.DeviceOrientationControls(
-    camera
-  );
-
-  /**
-   * スクリーンが垂直になるようにスマホを持っているときの、スクリーン裏面が向いている方角 (-180 〜 180) を計算する
-   */
-  function calcDeviceDirection(e) {
-    const ry = ((e.gamma || 0) * Math.PI) / 180;
-    const rx = ((e.beta || 0) * Math.PI) / 180;
-    const rz = ((e.alpha || 0) * Math.PI) / 180;
-    const cy = Math.cos(ry);
-    const sy = Math.sin(ry);
-    const cx = Math.cos(rx);
-    const sx = Math.sin(rx);
-    const cz = Math.cos(rz);
-    const sz = Math.sin(rz);
-    const x = -(sy * cz + cy * sx * sz);
-    const y = -(sy * sz - cy * sx * cz);
-    const z = -(cy * cx);
-
-    const angle = Math.atan2(-x, y) * (180.0 / Math.PI);
-    return angle;
-  }
-
-  window.addEventListener(
-    "deviceorientation",
-    (event) => {
-      const deg = calcDeviceDirection(event);
-      const rad = deg * (Math.PI / 180); // deg2rad (-π 〜 π)
-      if (deviceOrientationControls)
-        deviceOrientationControls.alphaOffset -= rad;
-    },
-    { once: true }
-  );
+  //  const deviceOrientationControls = new THREEx.DeviceOrientationControls(
+  //camera
+  //);
 
   arjs.add(box, 139.38845690593965, 35.65749057639006);
   //arjs.add(box, 35.66322707826773, 139.38779162906647);
@@ -69,7 +37,7 @@ function main() {
       camera.aspect = aspect;
       camera.updateProjectionMatrix();
     }
-    deviceOrientationControls.update();
+    //    deviceOrientationControls.update();
     cam.update();
     renderer.render(scene, camera);
     requestAnimationFrame(render);
