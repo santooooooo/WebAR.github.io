@@ -15,6 +15,10 @@ function main() {
   const mtl = new THREE.MeshBasicMaterial({ color: 0xff0000 });
   const box = new THREE.Mesh(geom, mtl);
 
+  const deviceOrientationControls = new THREEx.DeviceOrientationControls(
+    camera
+  );
+
   arjs.add(box, 139.38845690593965, 35.65749057639006);
   //arjs.add(box, 35.66322707826773, 139.38779162906647);
 
@@ -33,6 +37,7 @@ function main() {
       camera.aspect = aspect;
       camera.updateProjectionMatrix();
     }
+    deviceOrientationControls.update();
     cam.update();
     renderer.render(scene, camera);
     requestAnimationFrame(render);
