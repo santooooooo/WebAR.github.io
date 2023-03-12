@@ -11,7 +11,7 @@ function main() {
   const arjs = new THREEx.LocationBased(scene, camera);
   const cam = new THREEx.WebcamRenderer(renderer);
 
-  const geom = new THREE.BoxGeometry(20, 20, 20);
+  const geom = new THREE.BoxGeometry(200, 200, 200);
   const mtl = new THREE.MeshBasicMaterial({ color: 0xff0000 });
   const box = new THREE.Mesh(geom, mtl);
 
@@ -19,7 +19,7 @@ function main() {
     camera
   );
 
-  arjs.add(box, 35.65749057639006, 139.38845690593965);
+  arjs.add(box, 139.38845690593965, 35.65749057639006);
   //arjs.add(box, 35.66322707826773, 139.38779162906647);
 
   //arjs.fakeGps(-0.72, 51.05);
