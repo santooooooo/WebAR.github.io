@@ -19,7 +19,7 @@ function main() {
     camera
   );
 
-  arjs.add(box, 35.657501, 139.388417);
+  arjs.add(box, 35.65749057639006, 139.38845690593965);
 
   //arjs.fakeGps(-0.72, 51.05);
   arjs.startGps();
