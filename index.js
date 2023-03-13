@@ -16,8 +16,8 @@ function main() {
   const box = new THREE.Mesh(geom, mtl);
   arjs.add(box, -0.72, 51.051);
 
-  //arjs.fakeGps(35.6575, 35.6575);
-  arjs.startGps();
+  arjs.fakeGps(35.6575, 35.6575);
+  //arjs.startGps();
 
   requestAnimationFrame(render);
 
