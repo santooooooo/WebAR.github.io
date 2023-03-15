@@ -22,7 +22,7 @@ function loadPlaces(position) {
     .then((res) => {
       return res.json().then((resp) => {
         console.log(resp);
-        return resp.response.results;
+        return resp.results;
       });
     })
     .catch((err) => {
