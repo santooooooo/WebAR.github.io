@@ -21,6 +21,7 @@ function loadPlaces(position) {
   })
     .then((res) => {
       return res.json().then((resp) => {
+        console.log(resp.response);
         return resp.response.results;
       });
     })
