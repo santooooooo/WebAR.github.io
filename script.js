@@ -21,10 +21,8 @@ function loadPlaces(position) {
   })
     .then((res) => {
       console.log(res);
-      return res.json().then((resp) => {
-        console.log(resp.response);
-        return resp.response.results;
-      });
+      console.log(res.response);
+      return res.response.results;
     })
     .catch((err) => {
       console.error("Error with places API", err);
