@@ -21,7 +21,7 @@ function loadPlaces(position) {
   })
     .then((res) => {
       return res.json().then((resp) => {
-        return resp.response.venues;
+        return resp.response.results;
       });
     })
     .catch((err) => {
@@ -38,8 +38,8 @@ window.onload = () => {
       // than use it to load from remote APIs some places nearby
       loadPlaces(position.coords).then((places) => {
         places.forEach((place) => {
-          const latitude = place.location.lat;
-          const longitude = place.location.lng;
+          const latitude = place.geocodes.main.lat;
+          const longitude = place.geocodes.main.lng;
 
           // add place name
           const placeText = document.createElement("a-link");
