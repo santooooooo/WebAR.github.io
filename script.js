@@ -2,7 +2,7 @@
 function loadPlaces(position) {
   const params = {
     radius: 300, // search places not farther than this value (in meters)
-    clientId: "V5DQXUWBOOBLFI51T1MQE1YS20SVN2TMXJHCQXWSUVNMIYL5",
+    clientId: "<V5DQXUWBOOBLFI51T1MQE1YS20SVN2TMXJHCQXWSUVNMIYL5>",
     clientSecret: "AROLHKNV2HGOJ4SRH5TTHXBLTM0VQVVHTTDJXJB31YUGS5VL",
     version: "20300101", // foursquare versioning, required but unuseful for this demo
   };
