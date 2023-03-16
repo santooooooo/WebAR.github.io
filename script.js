@@ -1,3 +1,5 @@
+import { authorizationInfo } from "./authorizationInfo";
+
 // getting places from APIs
 function loadPlaces(position) {
   const params = {
@@ -12,6 +14,9 @@ function loadPlaces(position) {
 
   // Foursquare API (limit param: number of maximum places to fetch)
   const endpoint = `https://api.foursquare.com/v3/places/nearby?ll=${position.latitude}%2C${position.longitude}&limit=5`;
+
+  const authorization = authorizationInfo();
+  console.log(authorization);
 
   return fetch(endpoint, {
     headers: {
