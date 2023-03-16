@@ -42,9 +42,9 @@ window.onload = () => {
           const longitude = place.geocodes.main.longitude;
 
           console.log(place.name);
-          console.log(place.geocodes.main);
-          //console.log(latitude);
-          //console.log(longitude);
+          //console.log(place.geocodes.main);
+          console.log(latitude);
+          console.log(longitude);
 
           // add place name
           const placeText = document.createElement("a-link");
