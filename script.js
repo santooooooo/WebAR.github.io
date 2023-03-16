@@ -1,5 +1,3 @@
-import { authorizationInfo } from "./authorizationInfo.js";
-
 // getting places from APIs
 function loadPlaces(position) {
   const params = {
