@@ -21,7 +21,6 @@ function loadPlaces(position) {
   })
     .then((res) => {
       return res.json().then((resp) => {
-        console.log(resp);
         return resp.results;
       });
     })
@@ -41,6 +40,10 @@ window.onload = () => {
         places.forEach((place) => {
           const latitude = place.geocodes.main.lat;
           const longitude = place.geocodes.main.lng;
+
+          console.log(place.name);
+          console.log(latitude);
+          console.log(longitude);
 
           // add place name
           const placeText = document.createElement("a-link");
