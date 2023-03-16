@@ -38,11 +38,11 @@ window.onload = () => {
       // than use it to load from remote APIs some places nearby
       loadPlaces(position.coords).then((places) => {
         places.forEach((place) => {
-          const latitude = place.geocodes.main.lat;
-          const longitude = place.geocodes.main.lng;
+          const latitude = place.geocodes.main.latitude;
+          const longitude = place.geocodes.main.longitude;
 
           console.log(place.name);
-          console.log(place.geocodes);
+          console.log(place.geocodes.main);
           //console.log(latitude);
           //console.log(longitude);
 
