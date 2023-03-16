@@ -11,7 +11,7 @@ function loadPlaces(position) {
   const corsProxy = "https://cors-anywhere.herokuapp.com/";
 
   // Foursquare API (limit param: number of maximum places to fetch)
-  const endpoint = `https://api.foursquare.com/v3/places/nearby?ll=${position.latitude}%2C${position.longitude}&limit=5`;
+  const endpoint = `https://api.foursquare.com/v3/places/nearby?ll=${position.latitude}%2C${position.longitude}&limit=30`;
 
   return fetch(endpoint, {
     headers: {
