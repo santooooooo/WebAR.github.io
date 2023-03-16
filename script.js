@@ -15,7 +15,7 @@ function loadPlaces(position) {
 
   return fetch(endpoint, {
     headers: {
-      Authorization: "fsq3l5u9HnRW1irR3fry1Bgx66K88F3DftGcXf19Bf/t3jQ=",
+      Authorization: "fsq3RX8KFdAlBQGOmw+0TubrXo+faeO2gDNkGsX7KyMG0RQ=",
       Accept: "application/json",
     },
   })
