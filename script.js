@@ -32,42 +32,38 @@ function loadPlaces(position) {
 window.onload = () => {
   const scene = document.querySelector("a-scene");
 
+  function success(pos) {
+    var crd = pos.coords;
+    console.log("Your current position is:");
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    const latitude = crd.latitude;
+    const longitude = crd.longitude;
+    const placeText = document.createElement("a-link");
+    placeText.setAttribute(
+      "gps-entity-place",
+      `latitude: ${latitude}; longitude: ${longitude};`
+    );
+    placeText.setAttribute("title", place.name);
+    placeText.setAttribute("scale", "15 15 15");
+
+    placeText.addEventListener("loaded", () => {
+      window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+    });
+
+    scene.appendChild(placeText);
+  }
+
+  function error(err) {
+    console.error("Error in retrieving position", err);
+  }
+
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
   // first get current user location
-  return navigator.geolocation.getCurrentPosition(
-    function (position) {
-      // than use it to load from remote APIs some places nearby
-      loadPlaces(position.coords).then((places) => {
-        places.forEach((place) => {
-          const latitude = place.geocodes.main.latitude;
-          const longitude = place.geocodes.main.longitude;
-
-          console.log(place.name);
-          //console.log(place.geocodes.main);
-          console.log(latitude);
-          console.log(longitude);
-
-          // add place name
-          const placeText = document.createElement("a-link");
-          placeText.setAttribute(
-            "gps-entity-place",
-            `latitude: ${latitude}; longitude: ${longitude};`
-          );
-          placeText.setAttribute("title", place.name);
-          placeText.setAttribute("scale", "15 15 15");
-
-          placeText.addEventListener("loaded", () => {
-            window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
-          });
-
-          scene.appendChild(placeText);
-        });
-      });
-    },
-    (err) => console.error("Error in retrieving position", err),
-    {
-      enableHighAccuracy: true,
-      maximumAge: 0,
-      timeout: 27000,
-    }
-  );
+  return navigator.geolocation.getCurrentPosition(success, error, options);
 };
