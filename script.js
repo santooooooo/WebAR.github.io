@@ -70,7 +70,7 @@ window.onload = () => {
     model.setAttribute("gltf-model", models[0].rotation);
     model.setAttribute("animation-mixer", "");
 
-    scene.appendChild(placeText);
+    scene.appendChild(model);
   }
 
   function error(err) {
