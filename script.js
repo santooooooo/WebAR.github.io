@@ -67,7 +67,7 @@ window.onload = () => {
     );
     model.setAttribute("scale", models[0].scale);
     model.setAttribute("rotation", models[0].rotation);
-    model.setAttribute("gltf-model", models[0].rotation);
+    model.setAttribute("gltf-model", models[0].url);
     model.setAttribute("animation-mixer", "");
 
     scene.appendChild(model);
