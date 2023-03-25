@@ -29,8 +29,30 @@ function loadPlaces(position) {
     });
 }
 
+var models = [
+  {
+    url: "./assets/magnemite/scene.gltf",
+    scale: "0.5 0.5 0.5",
+    info: "Magnemite, Lv. 5, HP 10/10",
+    rotation: "0 180 0",
+  },
+  {
+    url: "./assets/articuno/scene.gltf",
+    scale: "0.2 0.2 0.2",
+    rotation: "0 180 0",
+    info: "Articuno, Lv. 80, HP 100/100",
+  },
+  {
+    url: "./assets/dragonite/scene.gltf",
+    scale: "0.08 0.08 0.08",
+    rotation: "0 180 0",
+    info: "Dragonite, Lv. 99, HP 150/150",
+  },
+];
+
 window.onload = () => {
   const scene = document.querySelector("a-scene");
+  const model = document.createElement("a-entity");
 
   function success(pos) {
     var crd = pos.coords;
@@ -39,16 +61,14 @@ window.onload = () => {
     console.log(`Longitude: ${crd.longitude}`);
     const latitude = crd.latitude;
     const longitude = crd.longitude;
-    const placeText = document.createElement("a-link");
-    placeText.setAttribute(
+    model.setAttribute(
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    placeText.setAttribute("scale", "15 15 15");
-
-    placeText.addEventListener("loaded", () => {
-      window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
-    });
+    model.setAttribute("scale", models[0].scale);
+    model.setAttribute("rotation", models[0].rotation);
+    model.setAttribute("gltf-model", models[0].rotation);
+    model.setAttribute("animation-mixer", "");
 
     scene.appendChild(placeText);
   }
