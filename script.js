@@ -7,15 +7,12 @@ function loadPlaces(position) {
     version: "20300101", // foursquare versioning, required but unuseful for this demo
   };
 
-  // CORS Proxy to avoid CORS problems
-  const corsProxy = "https://cors-anywhere.herokuapp.com/";
-
   // Foursquare API (limit param: number of maximum places to fetch)
   const endpoint = `https://api.foursquare.com/v3/places/nearby?ll=${position.latitude}%2C${position.longitude}&limit=30`;
 
   return fetch(endpoint, {
     headers: {
-      Authorization: "fsq3RX8KFdAlBQGOmw+0TubrXo+faeO2gDNkGsX7KyMG0RQ=",
+      Authorization: "",
       Accept: "application/json",
     },
   })
