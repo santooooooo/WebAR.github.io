@@ -49,6 +49,7 @@ var models = [
     url: "./assets/pin/pin.glb",
     scale: "0.5 0.5 0.5",
     info: "Magnemite, Lv. 5, HP 10/10",
+  },
 ];
 
 window.onload = () => {
