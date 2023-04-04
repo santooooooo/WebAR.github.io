@@ -45,6 +45,10 @@ var models = [
     rotation: "0 180 0",
     info: "Dragonite, Lv. 99, HP 150/150",
   },
+  {
+    url: "./assets/pin/pin.glb",
+    scale: "0.5 0.5 0.5",
+    info: "Magnemite, Lv. 5, HP 10/10",
 ];
 
 window.onload = () => {
@@ -62,9 +66,9 @@ window.onload = () => {
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    model.setAttribute("scale", models[0].scale);
-    model.setAttribute("rotation", models[0].rotation);
-    model.setAttribute("gltf-model", models[0].url);
+    model.setAttribute("scale", models[3].scale);
+    model.setAttribute("rotation", models[3].rotation);
+    model.setAttribute("gltf-model", models[3].url);
 
     scene.appendChild(model);
   }
