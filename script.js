@@ -47,7 +47,8 @@ var models = [
   },
   {
     url: "./assets/pin/pin.glb",
-    scale: "0.5 0.5 0.5",
+    scale: "0.3 0.3 0.3",
+    rotation: "0 180 0",
     info: "Magnemite, Lv. 5, HP 10/10",
   },
 ];
