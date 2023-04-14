@@ -54,8 +54,8 @@ var models = [
 ];
 
 window.onload = () => {
-  //const scene = document.querySelector("a-scene");
-  const model = document.querySelector("a-entity");
+  const scene = document.querySelector("a-scene");
+  const model = document.createElement("a-entity");
 
   function success(pos) {
     var crd = pos.coords;
@@ -68,8 +68,9 @@ window.onload = () => {
     model.setAttribute("scale", models[0].scale);
     model.setAttribute("rotation", models[0].rotation);
     model.setAttribute("gltf-model", models[0].url);
+    model.setAttribute("animation-mixer", "");
 
-    //scene.appendChild(model);
+    scene.appendChild(model);
   }
 
   function error(err) {
