@@ -84,8 +84,6 @@ window.onload = () => {
     maximumAge: 0,
   };
 
-  distance.textContent = "Jamboo!!";
-
   model.addEventListener("gps-entity-place-update-position", (event) => {
     console.log("update position event occured!!");
     distance.textContent = event.detail.distance + "m";
