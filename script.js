@@ -59,19 +59,15 @@ window.onload = () => {
 
   function success(pos) {
     var crd = pos.coords;
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
     const latitude = crd.latitude;
     const longitude = crd.longitude;
     model.setAttribute(
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    model.setAttribute("scale", models[0].scale);
-    model.setAttribute("rotation", models[0].rotation);
-    model.setAttribute("gltf-model", models[0].url);
-    model.setAttribute("animation-mixer", "");
+    model.setAttribute("scale", models[3].scale);
+    model.setAttribute("rotation", models[3].rotation);
+    model.setAttribute("gltf-model", models[3].url);
 
     scene.appendChild(model);
   }
