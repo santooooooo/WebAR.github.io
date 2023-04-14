@@ -56,6 +56,7 @@ var models = [
 window.onload = () => {
   const scene = document.querySelector("a-scene");
   const model = document.createElement("a-entity");
+  const distance = document.getElementById("distance");
 
   function success(pos) {
     var crd = pos.coords;
@@ -82,6 +83,10 @@ window.onload = () => {
     timeout: 5000,
     maximumAge: 0,
   };
+
+  distance.addEventListener("gps-entity-place-update-position", (event) => {
+    distance.textContent = event.detail.distance + "m";
+  });
 
   // first get current user location
   return navigator.geolocation.getCurrentPosition(success, error, options);
