@@ -81,7 +81,7 @@ window.onload = () => {
       distance.textContent = event.detail.distance + "m";
     });
 
-    scene.appendChild(model);
+    //scene.appendChild(model);
   }
 
   function error(err) {
