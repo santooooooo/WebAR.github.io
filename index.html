@@ -35,7 +35,6 @@
         	model.addEventListener('gps-entity-place-update-positon', (event) => {
       			console.log("gps update position event occured!!");
       			distance.textContent = event.detail.distance + "m";
-      			text.setAttribute("value", text.getAttribute("distanceMsg"));
         	});
       	});		
 	</script>
