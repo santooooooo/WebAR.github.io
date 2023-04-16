@@ -28,4 +28,15 @@
 </div>
     <script src="./script.js"></script>
 
+	<script>
+	window.addEventListener('load', () => {
+  		const distance = document.getElementById("distance");
+  		const model = document.getElementById("pin");
+        	model.addEventListener('gps-entity-place-update-positon', (event) => {
+      			console.log("gps update position event occured!!");
+      			distance.textContent = event.detail.distance + "m";
+      			text.setAttribute("value", text.getAttribute("distanceMsg"));
+        	});
+      	});		
+	</script>
 </body>
