@@ -55,7 +55,6 @@ var models = [
 
 window.addEventListener("load", () => {
   const model = document.getElementById("pin");
-  const text = document.getElementById("text");
 
   function success(pos) {
     var crd = pos.coords;
@@ -65,19 +64,10 @@ window.addEventListener("load", () => {
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    //model.setAttribute("scale", models[3].scale);
-    //model.setAttribute("rotation", models[3].rotation);
-    //model.setAttribute("gltf-model", models[3].url);
-    //model.setAttribute("animation-mixer", "");
-
-    text.setAttribute(
-      "gps-entity-place",
-      `latitude: ${latitude}; longitude: ${longitude};`
-    );
-    text.addEventListener("gps-entity-place-update-position", (event) => {
-      console.log("gps update position event occured!!");
-      text.setAttribute("value", text.getAttribute("distanceMsg"));
-    });
+    model.setAttribute("scale", models[3].scale);
+    model.setAttribute("rotation", models[3].rotation);
+    model.setAttribute("gltf-model", models[3].url);
+    model.setAttribute("animation-mixer", "");
   }
 
   function error(err) {
