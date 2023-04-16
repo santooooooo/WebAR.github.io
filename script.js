@@ -89,6 +89,11 @@ window.onload = () => {
     distance.textContent = event.detail.distance + "m";
   });
 
+  model.addEventListener("gps-entity-place-added", (event) => {
+    console.log("gps position added event occured!!");
+    distance.textContent = event.detail.distance + "m";
+  });
+
   // first get current user location
   return navigator.geolocation.getCurrentPosition(success, error, options);
 };
