@@ -56,6 +56,7 @@ var models = [
 window.onload = () => {
   //const scene = document.querySelector("a-scene");
   const model = document.getElementById("pin");
+  const text = document.getElementById("text");
   const distance = document.getElementById("distance");
 
   function success(pos) {
@@ -71,14 +72,19 @@ window.onload = () => {
     model.setAttribute("gltf-model", models[3].url);
     model.setAttribute("animation-mixer", "");
 
-    model.addEventListener("gps-entity-place-update-position", (event) => {
-      console.log("update position event occured!!");
+    text.setAttribute(
+      "gps-entity-place",
+      `latitude: ${latitude}; longitude: ${longitude};`
+    );
+    text.addEventListener("gps-entity-place-update-position", (event) => {
+      console.log("gps update position event occured!!");
       distance.textContent = event.detail.distance + "m";
+      text.setAttribute("value", text.getAttribute("distanceMsg"));
     });
-
-    model.addEventListener("gps-entity-place-added", (event) => {
+    text.addEventListener("gps-entity-place-added", (event) => {
       console.log("gps position added event occured!!");
       distance.textContent = event.detail.distance + "m";
+      text.setAttribute("value", text.getAttribute("distanceMsg"));
     });
 
     //scene.appendChild(model);
