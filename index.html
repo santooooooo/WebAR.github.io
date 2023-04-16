@@ -33,7 +33,6 @@
 <div class="centered">
     <button data-action="change"></button>
 </div>
-    <script src="./script.js"></script>
 
 	<script>
 	//window.addEventListener('load', () => {
@@ -45,5 +44,46 @@
   //    			text.setAttribute("value", text.getAttribute("distanceMsg"));
   //      	});
   //    	});		
+
+window.addEventListener("load", () => {
+  const model = document.getElementById("pin");
+  const text = document.getElementById("text");
+
+  function success(pos) {
+    var crd = pos.coords;
+    const latitude = crd.latitude;
+    const longitude = crd.longitude;
+    model.setAttribute(
+      "gps-entity-place",
+      `latitude: ${latitude}; longitude: ${longitude};`
+    );
+    model.setAttribute("scale", "0.3 0.3 0.3");
+    model.setAttribute("rotation", "0 180 0");
+    model.setAttribute("gltf-model", "./assets/pin/pin.glb");
+    model.setAttribute("animation-mixer", "");
+
+    text.setAttribute(
+      "gps-entity-place",
+      `latitude: ${latitude}; longitude: ${longitude};`
+    );
+    text.addEventListener("gps-entity-place-update-position", (event) => {
+      console.log("gps update position event occured!!");
+      text.setAttribute("value", text.getAttribute("distanceMsg"));
+    });
+  }
+
+  function error(err) {
+    console.error("Error in retrieving position", err);
+  }
+
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
+  // first get current user location
+  return navigator.geolocation.getCurrentPosition(success, error, options);
+});
 	</script>
 </body>

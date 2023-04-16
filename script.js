@@ -54,7 +54,6 @@ var models = [
 ];
 
 window.addEventListener("load", () => {
-  //const scene = document.querySelector("a-scene");
   const model = document.getElementById("pin");
   const text = document.getElementById("text");
 
@@ -79,12 +78,6 @@ window.addEventListener("load", () => {
       console.log("gps update position event occured!!");
       text.setAttribute("value", text.getAttribute("distanceMsg"));
     });
-    text.addEventListener("gps-entity-place-added", (event) => {
-      console.log("gps position added event occured!!");
-      text.setAttribute("value", text.getAttribute("distanceMsg"));
-    });
-
-    //scene.appendChild(model);
   }
 
   function error(err) {
