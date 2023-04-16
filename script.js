@@ -66,10 +66,10 @@ window.onload = () => {
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    //model.setAttribute("scale", models[3].scale);
-    //model.setAttribute("rotation", models[3].rotation);
-    //model.setAttribute("gltf-model", models[3].url);
-    //model.setAttribute("animation-mixer", "");
+    model.setAttribute("scale", models[3].scale);
+    model.setAttribute("rotation", models[3].rotation);
+    model.setAttribute("gltf-model", models[3].url);
+    model.setAttribute("animation-mixer", "");
 
     text.setAttribute(
       "gps-entity-place",
