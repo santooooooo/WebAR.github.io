@@ -53,7 +53,7 @@ var models = [
   },
 ];
 
-window.onload = () => {
+window.addEventListener("load", () => {
   //const scene = document.querySelector("a-scene");
   const model = document.getElementById("pin");
   const text = document.getElementById("text");
@@ -99,4 +99,4 @@ window.onload = () => {
 
   // first get current user location
   return navigator.geolocation.getCurrentPosition(success, error, options);
-};
+});
