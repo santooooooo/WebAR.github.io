@@ -21,13 +21,6 @@
         embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
     <a-entity id="pin"></a-entity>
-    <a-text
-        id="text"
-        value="distance:"
-        look-at="[gps-camera]"
-        scale="30 30 30"
-        position="0 55 0"
-      ></a-text>
     <a-camera gps-camera rotation-reader></a-camera>
 </a-scene>
 <div class="centered">
@@ -35,15 +28,4 @@
 </div>
     <script src="./script.js"></script>
 
-	<script>
-	window.addEventListener('load', () => {
-  		const distance = document.getElementById("distance");
-  		const model = document.getElementById("pin");
-        	model.addEventListener('gps-entity-place-update-positon', (event) => {
-      			console.log("gps update position event occured!!");
-      			distance.textContent = event.detail.distance + "m";
-      			text.setAttribute("value", text.getAttribute("distanceMsg"));
-        	});
-      	});		
-	</script>
 </body>

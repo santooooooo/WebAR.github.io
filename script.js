@@ -68,6 +68,13 @@ window.addEventListener("load", () => {
     model.setAttribute("rotation", models[3].rotation);
     model.setAttribute("gltf-model", models[3].url);
     model.setAttribute("animation-mixer", "");
+
+    const distance = document.getElementById("distance");
+    model.addEventListener("gps-entity-place-update-positon", (event) => {
+      console.log("gps update position event occured!!");
+      distance.textContent = event.detail.distance + "m";
+      text.setAttribute("value", text.getAttribute("distanceMsg"));
+    });
   }
 
   function error(err) {
