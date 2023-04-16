@@ -21,7 +21,7 @@
         vr-mode-ui='enabled: false' 
         embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-    <a-entity scale="0.3 0.3 0.3" rotation="0 180 0" gltf-model="./assets/dragonite/scene.gltf" animation-mixer></a-entity>
+    <a-entity id="pin" scale="0.3 0.3 0.3" rotation="0 180 0" gltf-model="./assets/dragonite/scene.gltf" animation-mixer></a-entity>
     <a-text
         id="text"
         value="distance:"
@@ -37,7 +37,8 @@
 
 	<script>
 	window.addEventListener('load', () => {
-		const model = document.querySelector("a-entity")
+  		const distance = document.getElementById("distance");
+  		const model = document.getElementById("pin");
         	model.addEventListener('gps-entity-place-update-positon', (event) => {
       			console.log("gps update position event occured!!");
       			distance.textContent = event.detail.distance + "m";
